@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="../static/img/health.ico">
+    <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style >
+    *{
+    margin:0;
+    padding:0;
+background-color: lightgray;
+    font-family: 'Josefin Sans', sans-serif;
+    }
+    html,
+    body,
+    header,
+    #intro {
+    height: 100%;
+    }
+    
+    img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    }
+    </style>
+    <title>Kidney Disease Prediction</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav>
+      <!--Mask-->
+      <div id="intro" class="container-fluid view ">
+        <h1 class="text-center text-capitalize pt-5" style="font-family: algerian; font-weight: bold;">Know your chances of getting a kidney disease in one Click!</h1>
+        <hr class="w-75 mx-auto pt-5">
+        <h2 class="text-center text-capitalize pt-5" style="font-family: algerian; font-size: 22px; transform: translate(-2%,-83%);">If you don't have the information required below talk to your doctor.</h2>
+        <div class="row mb-5">
+          <div class="col-lg-6 col-md-6 col-12 my-auto">
+            
+            
+            
+
+          </div>
+          <div class="col-lg-3 col-md-6 col-12">
+            <form action="{{ url_for('predict')}}" method="post">
+              <div class="form-group">
+                <!-- TODO : Year to accept only year date picker -->
+                <label for="bp" style="font-family: algerian; font-weight: bold; font-size: 25px; transform: translate(-373%,-40%);">Blood Pressure</label>
+                <input class="form-control" type="number" id="bp" name="Year" required="required" placeholder="Blood Pressure in mmHg" style="font-family: algerian; transform: translate(-215%,-40%);">
+              </div>
+
+              <div class="form-group">
+                <label for="sg" style="font-family: algerian; font-weight: bold; font-size:25px; transform: translate(-170%,-308%);">Serum Urea</label>
+                <input class="form-control" type="number" step="any" id="sg" name="sg" required="required" placeholder="Serum Urea in mg/dl" style="font-family: algerian; transform: translate(-73%,-300%);">
+              </div>
+
+              <div class="form-group">
+                <label for="al" style="font-family: algerian; font-weight: bold; font-size: 25px; transform: translate(240%,-575%);">Albumin</label>
+                <input class="form-control" type="number" id="al" name="al" required="required" placeholder="Albumin in mg/l" style="font-family: algerian; transform: translate(72%,-560%);">
+              </div>
+
+              <div class="form-group">
+                <label for="su" style="font-family: algerian; font-weight: bold; font-size: 25px; transform: translate(-225%,-490%);">Blood Glucose Regulator</label>
+                <input class="form-control" type="number" id="su" name="su" required="required" placeholder="Blood Glucose Regulator mg/Dl" style="font-family: algerian; transform: translate(-214%,-473%);">
+              </div>
+
+              <div class="form-group">
+                <label for="su" style="font-family: algerian; font-weight: bold; font-size: 25px; transform: translate(-112%,-758%);">Serum Creatinine</label>
+                <input class="form-control" type="number" id="su" name="su" required="required" placeholder="Serum Creatinine in mg/dl" style="font-family: algerian; transform: translate(-72%,-735%);">
+              </div>
+
+              <div class="form-group">
+                <label for="su" style="font-family: algerian; font-weight: bold; font-size: 25px; transform: translate(300%,-1025%);">Sodium</label>
+                <input class="form-control" type="number" id="su" name="su" required="required" placeholder="Sodium mmol/L" style="font-family: algerian; transform: translate(72%,-995%);">
+              </div>
+
+              <div class="form-group">
+                <label for="rbc" style="font-family: algerian; font-weight: bold; font-size: 25px; transform: translate(-263%,-940%);">Red Blood Cells Count</label>
+                <input class="form-control" type="number" id="rbc" name="rbc" required="required" placeholder="Red Blood Cells Count in million/mm3" style="font-family: algerian; transform: translate(-214%,-900%);">
+              </div>
+
+              <div class="form-group">
+                <label for="pc" style="font-family: algerian; font-weight: bold; font-size: 25px; transform: translate(-150%,-1209%);">Haemoglobin</label>
+                <input class="form-control" type="number" id="pc" name="pc" required="required" placeholder="Haemoglobin in g/dl" style="font-family: algerian; transform: translate(-72%,-1159%);">
+              </div>
+
+              <div class="form-group">
+                <label for="pcc" style="font-family: algerian; font-weight: bold; font-size: 25px; transform: translate(192%,-1475%);">Potassium</label>
+                <input class="form-control" type="number" id="pcc" name="pcc" required="required" placeholder="Potassium in mmol/l" style="font-family: algerian; transform: translate(72%,-1420%);">
+              </div>          
+              <button type="submit" class="btn btn-danger" style="transform: translate(-110%,-750%); font-size: 35px;">Predict</button>
+              </form>
+          </div>
+        </div>
+      </div>
+      <!--/.Mask-->
+    </header>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
